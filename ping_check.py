@@ -27,6 +27,8 @@ def ping(host):
     if ping_command:
         command = ping_command + str(host)
         return os.popen(command).read()
+    else:
+        return None
 
 
 def check_ping(host):
