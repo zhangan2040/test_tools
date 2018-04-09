@@ -9,7 +9,7 @@ import threading
 import os
 import sys
 import re
-from multiprocessing import Process
+#from multiprocessing import Process
 
 _PLAT = sys.platform
 ping_command = None
@@ -40,6 +40,8 @@ def check_ping(host):
         else:
             print('%s DOWN' % host)
             return False
+    else:
+        return None
 
 
 if __name__ == '__main__':
