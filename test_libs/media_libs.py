@@ -42,7 +42,7 @@ class M3U8:
     def __init__(self, url):
         self.url = url
         self.url_info = analysis_url(url)
-        self.content = requests.get(url).content
+        self.content = requests.get(url).content.decode('utf-8')
 
     def ts_list(self):
         ts_pattern = re.compile('#EXTINF:(.*?)\n(.*?)\n')
