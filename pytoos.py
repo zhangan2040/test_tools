@@ -15,7 +15,7 @@ class DateTrans():
         self.dt = tk.Tk()
         self.dt.title('Time-Stamp tools by Python(zhangan)')
         self.date = tk.StringVar()
-        self.date.set('2019/01/01 00:00:00')
+        self.date.set(time.strftime('%Y/%m/%d %H:%M:%S', time.localtime()))
         self.stamp = tk.StringVar()
         self.stamp.set(time.time())
         self.create_widgets()
