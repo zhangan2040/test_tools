@@ -1,9 +1,9 @@
 #!/usr/bin/env python
 # -*- coding:utf-8 -*-
 # Author: anzhang28@163.com
-# Filename: 
-# Date: 
-# Description:
+# Filename: pytools.py
+# Date: 2019/03/01
+# Description: 测试中用到的小工具
 
 
 import tkinter as tk
@@ -21,7 +21,6 @@ class DateTrans():
         self.create_widgets()
 
     def create_widgets(self):
-
         self.date2stamp = tk.LabelFrame(self.dt, text='时间戳转换工具：', height=500, width=200)
         self.date2stamp.pack()
         self.lf_date_lable = tk.Label(self.date2stamp, text='日期：')
