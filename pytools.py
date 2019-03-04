@@ -23,10 +23,10 @@ class DateTrans():
     def create_widgets(self):
         self.date2stamp = tk.LabelFrame(self.dt, text='时间戳转换工具：', height=500, width=200)
         self.date2stamp.pack()
-        self.lf_date_lable = tk.Label(self.date2stamp, text='日期：')
-        self.lf_date_lable.grid(row=0, column=0, padx=10, pady=5)
-        self.lf_date_lable = tk.Label(self.date2stamp, text='时间戳：')
-        self.lf_date_lable.grid(row=0, column=2, padx=10, pady=5)
+        self.lf_date_label = tk.Label(self.date2stamp, text='日期：')
+        self.lf_date_label.grid(row=0, column=0, padx=10, pady=5)
+        self.lf_date_label = tk.Label(self.date2stamp, text='时间戳：')
+        self.lf_date_label.grid(row=0, column=2, padx=10, pady=5)
         # 用于显示日期
         self.lf_date_entry = tk.Entry(self.date2stamp, textvariable=self.date)
         self.lf_date_entry.grid(row=0, column=1, padx=0, pady=5)
