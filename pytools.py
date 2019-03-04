@@ -21,23 +21,23 @@ class DateTrans():
         self.create_widgets()
 
     def create_widgets(self):
-        self.date2stamp = tk.LabelFrame(self.dt, text='时间戳转换工具：', height=500, width=200)
-        self.date2stamp.pack()
+        self.date2stamp = tk.LabelFrame(self.dt, text='时间戳转换工具：', height=10, width=200)
+        self.date2stamp.grid()
         self.lf_date_label = tk.Label(self.date2stamp, text='日期：')
-        self.lf_date_label.grid(row=0, column=0, padx=10, pady=5)
+        self.lf_date_label.grid(row=0, column=0, ipadx=10, ipady=5)
         self.lf_date_label = tk.Label(self.date2stamp, text='时间戳：')
-        self.lf_date_label.grid(row=0, column=2, padx=10, pady=5)
+        self.lf_date_label.grid(row=0, column=2, ipadx=10, ipady=5)
         # 用于显示日期
         self.lf_date_entry = tk.Entry(self.date2stamp, textvariable=self.date)
-        self.lf_date_entry.grid(row=0, column=1, padx=0, pady=5)
+        self.lf_date_entry.grid(row=0, column=1, sticky=tk.W, padx=10)
         # 用于显示时间戳
         self.lf_stamp_entry = tk.Entry(self.date2stamp, textvariable=self.stamp)
-        self.lf_stamp_entry.grid(row=0, column=3, padx=0, pady=5)
+        self.lf_stamp_entry.grid(row=0, column=3, sticky=tk.W, padx=10)
         # 添加转换按钮
         self.s2d_button = tk.Button(self.date2stamp, text='<<', command=self.stamp_date)
-        self.s2d_button.grid(row=1, column=1, sticky=tk.W, padx=10, pady=0)
+        self.s2d_button.grid(row=1, column=1, ipadx=10)
         self.d2s_button = tk.Button(self.date2stamp,text='>>', command=self.date_stamp)
-        self.d2s_button.grid(row=1, column = 2, sticky=tk.E, padx=10, pady=0)
+        self.d2s_button.grid(row=1, column = 3, ipadx=10)
 
     def date_stamp(self):
         cur_time = time.strptime(self.lf_date_entry.get(), '%Y/%m/%d %H:%M:%S')
