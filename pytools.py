@@ -8,6 +8,7 @@
 
 import tkinter as tk
 import time
+import base64
 
 
 class DateTrans():
@@ -101,17 +102,17 @@ class SoulTools(tk.Tk):
         # 添加编/解码字符输入框
         self.string_label = tk.Label(self.main_lf, text='原始字符：')
         self.string_label.grid(row=0, column=0, ipadx=10, sticky=tk.N)
-        self.string_text = tk.Text(self.main_lf, )
-        self.string_text.grid(row=0, column=1, ipadx=10, ipady=30)
+        self.string_text = tk.Text(self.main_lf)
+        self.string_text.grid(row=0, column=1)
         self.code_label = tk.Label(self.main_lf, text='转码字符：')
         self.code_label.grid(row=0, column=6, ipadx=10, sticky=tk.N)
-        self.code_text = tk.Text(self.main_lf, textvariable=self.code_var)
-        self.code_text.grid(row=0, column=7, padx=10, ipadx=10, ipady=30)
+        self.code_text = tk.Text(self.main_lf)
+        self.code_text.grid(row=0, column=7)
         # 添加操作button
         self.s2d_button = tk.Button(self.main_lf, text='转码', command=self.bs_codec)
-        self.s2d_button.grid(row=1, column=1, ipadx=10, pady=20)
+        self.s2d_button.grid(row=1, column=1, ipadx=30, pady=20)
         self.d2s_button = tk.Button(self.main_lf, text='解码', command=self.bs_encodec)
-        self.d2s_button.grid(row=1, column=3, ipadx=10, pady=20)
+        self.d2s_button.grid(row=1, column=7, ipadx=30, pady=20)
         self.bs_view = True
 
     def date_stamp(self):
@@ -123,10 +124,16 @@ class SoulTools(tk.Tk):
         self.date_var.set(time.strftime('%Y/%m/%d %H:%M:%S', cur_time))
 
     def bs_codec(self):
-        pass
+        decode_bstring = self.string_text.get('1.0', tk.END).encode(encoding='utf-8')
+        encode_str = base64.b64encode(decode_bstring)
+        self.code_text.delete('1.0', tk.END)
+        self.code_text.insert(tk.INSERT, encode_str.decode(encoding='utf-8'))
 
     def bs_encodec(self):
-        pass
+        encode_str = self.code_text.get('1.0', tk.END).encode(encoding='utf-8')
+        decode_bstring =base64.b64decode(encode_str)
+        self.string_text.delete('1.0', tk.END)
+        self.string_text.insert(tk.INSERT, decode_bstring.decode(encoding='utf-8'))
 
 
 
