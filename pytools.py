@@ -73,7 +73,7 @@ class SoulTools(tk.Tk):
         self.date_var = tk.StringVar()
         self.date_var.set(time.strftime('%Y/%m/%d %H:%M:%S', time.localtime()))
         self.stamp_var = tk.StringVar()
-        self.stamp_var.set(str(time.time()))
+        self.stamp_var.set(int(time.time()))
         # 添加时间输入框
         self.date_label = tk.Label(self.main_lf, text='日期：')
         self.date_label.grid(row=0, column=0, ipadx=10)
@@ -116,10 +116,10 @@ class SoulTools(tk.Tk):
 
     def date_stamp(self):
         cur_time = time.strptime(self.date_entry.get(), '%Y/%m/%d %H:%M:%S')
-        self.stamp_var.set(time.mktime(cur_time))
+        self.stamp_var.set(int(time.mktime(cur_time)))
 
     def stamp_date(self):
-        cur_time = time.localtime(float(self.stamp_entry.get()))
+        cur_time = time.localtime(int(self.stamp_entry.get()))
         self.date_var.set(time.strftime('%Y/%m/%d %H:%M:%S', cur_time))
 
     def bs_codec(self):
