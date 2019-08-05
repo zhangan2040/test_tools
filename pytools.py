@@ -16,7 +16,7 @@ class DateTrans():
         self.dt = tk.Tk()
         self.dt.title('Time-Stamp tools by Python(zhangan)')
         self.date = tk.StringVar()
-        self.date.set(time.strftime('%Y/%m/%d %H:%M:%S', time.localtime()))
+        self.date.set(time.strftime('%Y-%m-%d %H:%M:%S', time.localtime()))
         self.stamp = tk.StringVar()
         self.stamp.set(time.time())
         self.create_widgets()
@@ -41,12 +41,12 @@ class DateTrans():
         self.d2s_button.grid(row=1, column = 3, ipadx=10)
 
     def date_stamp(self):
-        cur_time = time.strptime(self.lf_date_entry.get(), '%Y/%m/%d %H:%M:%S')
+        cur_time = time.strptime(self.lf_date_entry.get(), '%Y-%m-%d %H:%M:%S')
         self.stamp.set(time.mktime(cur_time))
 
     def stamp_date(self):
         cur_time = time.localtime(float(self.lf_stamp_entry.get()))
-        self.date.set(time.strftime('%Y/%m/%d %H:%M:%S', cur_time))
+        self.date.set(time.strftime('%Y-%m-%d %H:%M:%S', cur_time))
 
 
 class SoulTools(tk.Tk):
@@ -72,7 +72,7 @@ class SoulTools(tk.Tk):
             self.main_lf.grid(row=1, column=0, columnspan=15)
             self.bs_view = False
         self.date_var = tk.StringVar()
-        self.date_var.set(time.strftime('%Y/%m/%d %H:%M:%S', time.localtime()))
+        self.date_var.set(time.strftime('%Y-%m-%d %H:%M:%S', time.localtime()))
         self.stamp_var = tk.StringVar()
         self.stamp_var.set(int(time.time()))
         # 添加时间输入框
@@ -116,12 +116,12 @@ class SoulTools(tk.Tk):
         self.bs_view = True
 
     def date_stamp(self):
-        cur_time = time.strptime(self.date_entry.get(), '%Y/%m/%d %H:%M:%S')
+        cur_time = time.strptime(self.date_entry.get(), '%Y-%m-%d %H:%M:%S')
         self.stamp_var.set(int(time.mktime(cur_time)))
 
     def stamp_date(self):
         cur_time = time.localtime(int(self.stamp_entry.get()))
-        self.date_var.set(time.strftime('%Y/%m/%d %H:%M:%S', cur_time))
+        self.date_var.set(time.strftime('%Y-%m-%d %H:%M:%S', cur_time))
 
     def bs_codec(self):
         decode_bstring = self.string_text.get('1.0', tk.END).encode(encoding='utf-8')
